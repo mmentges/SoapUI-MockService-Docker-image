@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="11d9c37d-a7bf-4a6d-9e85-25bafc4e85ce" activeEnvironment="Default environment" name="Couponing REST" resourceRoot="" soapui-version="5.6.0" encryptionMode="Not encrypted" updated="3.6.0 2021-02-02T15:53:59Z" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="9d452799-8604-4772-8034-53f4fe8db571" wadlVersion="http://wadl.dev.java.net/2009/02" name="ADAS - A2B - Couponing - Services" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:description>Universelle Standardschnittstelle zur Anbindung externer Couponing-Clearingstellen (CCP) an die Warenwirtschaftssysteme (WaWi) deutscher Apotheken</con:description><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://LAPTOP-H6RK9VVG:8089/</con:endpoint></con:endpoints><con:resource name="/coupon/activation" path="/coupon/activation" id="a7179c81-1f9f-4c41-aa76-aebdc841faf0"><con:settings/><con:parameters/><con:method name="post_coupon_activierung" id="47082db2-43cf-47cb-a7e6-62bb48d70f7f" method="POST"><con:description>Verbindliche Einlösung bzw. Issuing neuer Coupons unter Angabe der Apotheke und eines Warenkorbs an eine Couponing-Clearingstelle (Wird genau ein einziges mal am Ende des Abverkaufsvorgangs und vor dem Bondruck aufgerufen)&#13;
+Verbindliche Einlösung bzw. Ausgabe eines Coupons bei einer Couponing-Clearingstelle</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>apo_nr</con:name><con:style>QUERY</con:style><con:description>Ist die von der NGDA im Rahmen von N-Ident vergebene Apothekennummer {apo_nr} und dient der eindeutigen Identifizierung einer Betriebsstätte. Eine Mehrfachvergabe ist hier nicht vorgesehen.</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>401</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>504</con:status><con:params/></con:representation><con:request name="Request 1" id="81418f61-ce0f-4f09-8556-1b04e0dbd928" mediaType="application/json" postQueryString="false"><con:settings/><con:endpoint>Test</con:endpoint><con:request/><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="/coupon/configuration" path="/coupon/configuration" id="9c48a368-5f25-42ac-914d-f741160cc8c7"><con:settings/><con:parameters/><con:method name="get_coupon_configuration" id="9b7a710c-1137-49da-bd85-2a020cb7317a" method="GET"><con:description>Anfrage an eine Couponing-Clearingstelle zur Ermittlung der für den Client auf Basis der Apothekennummer {apo_nr} freigeschalteten Provider von Coupons&#13;
+</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>apo_nr</con:name><con:style>QUERY</con:style><con:description>Ist die von der NGDA im Rahmen von N-Ident vergebene Apothekennummer {apo_nr} und dient der eindeutigen Identifizierung einer Betriebsstätte. Eine Mehrfachvergabe ist hier nicht vorgesehen.</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>401</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>504</con:status><con:params/></con:representation><con:request name="Request 1" id="16cec23b-73cb-40e6-973b-4f7afd866ebf" mediaType="application/json"><con:settings/><con:endpoint>Test</con:endpoint><con:request/><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="/coupon/inquiry" path="/coupon/inquiry" id="6e5382e6-2184-443c-bef1-8ac4cf5a09f8"><con:settings/><con:parameters/><con:method name="post_coupon_inquiry" id="e7e14cc0-d81e-414e-8f9c-adbbb5ed9487" method="POST"><con:description>Unverbindliche Anfrage an eine Couponing-Clearingstelle zur Einlösung bzw. Ausgabe neuer Coupons unter Angabe der Apotheke und eines Warenkorbs. Die Anfrage darf mehrfach auch während des Abverkaufsvorgang gestellt werden.&#13;
+Anfrage an eine Couponing-Clearingstelle</con:description><con:settings/><con:parameters><con:parameter required="true"><con:name>apo_nr</con:name><con:style>QUERY</con:style><con:description>Ist die von der NGDA im Rahmen von N-Ident vergebene Apothekennummer {apo_nr} und dient der eindeutigen Identifizierung einer Betriebsstätte. Eine Mehrfachvergabe ist hier nicht vorgesehen.</con:description></con:parameter></con:parameters><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>401</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>504</con:status><con:params/></con:representation><con:request name="Request 1" id="837f9359-fa49-44dc-a4ed-8c66ee6bf06f" mediaType="application/json"><con:settings/><con:endpoint>Test</con:endpoint><con:credentials><con:username xsi:nil="true"/><con:password xsi:nil="true"/><con:domain xsi:nil="true"/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:parameters/></con:request></con:method></con:resource></con:interface><con:restMockService id="4ee52aa8-87d3-4d57-b4b5-dde003853565" port="8089" path="/" host="localhost" name="Couponing REST MOCK Services"><con:settings/><con:properties/><con:constraints><con:congestion>0</con:congestion><con:inputBandwidth>-1</con:inputBandwidth><con:outputBandwidth>-1</con:outputBandwidth><con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity><con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity><con:virtError><con:start>0</con:start><con:endless>true</con:endless></con:virtError></con:constraints><con:headerValidator type="NONE"/><con:restMockAction name="/coupon/activation" method="POST" resourcePath="/coupon/activation" id="38d134a6-86be-483d-afa9-225a3644b208"><con:settings/><con:defaultResponse>200</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchConfig/><con:dispatchPath>String parameter = mockRequest.request.getParameter("apo_nr");
+
+/*check parameter is set
+if(parameter.isEmpty()) {
+	 return "401";
+}
+*/
+
+if(parameter.equals("APO1234567")) {
+	return "200";
+} else {
+	return "401";
+}
+ 
+return "400";
+
+/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:dispatchXPath/><con:parameterDispatcherRuleContainer/><con:routeScript/><con:response name="200" id="1bfc2d1e-8652-4292-9d07-9ceeb0b4b3b3" httpResponseStatus="200" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "meta": {
+    "client_id": "APO1234567",
+    "client_name": "System ABC der Firma XYZ",
+    "client_version": "1.1.0",
+    "user_id": "PM",
+    "user_name": "Peter Mustermann",
+    "ctid": "753d4e7f-a12b-89a4-f123-B25a45c78d9f",
+    "server_id": "SRV1234567",
+    "server_name": "A2B-Gateway der Firma XYZ",
+    "server_version": "1.1.0",
+    "stid": "123e4567-e89b-12d3-a456-9AC7CBDCEE52",
+    "val_date": "2017-07-21T17:32:28Z"
+  },
+  "data": {
+    "shoppingcartlines": [
+      {
+        "soid": "abcdef1234567890",
+        "coid": "1234567890abcdef",
+        "type": "SCL",
+        "article": {
+          "coid": "1234567890abcdef",
+          "type": "ART",
+          "pzn": "78597",
+          "ean": "EAN-Code",
+          "name": "Aspinin Tabletten - 50 St N1 - Bayer"
+        },
+        "quantity": 1,
+        "linevalue": 6800
+      }
+    ],
+    "redemptioncoupons": [
+      {
+        "soid": "abcdef1234567890",
+        "coid": "1234567890abcdef",
+        "type": "CPN",
+        "code": "string",
+        "discount_max": 6800,
+        "name": "string",
+        "prv_long_name": "Firma xyz",
+        "state": "INVALID",
+        "bon_text": "Nur gültig bis ... Mindestauftragswert von 20 € nicht erreicht.",
+        "message_text": "1€ Rabatt auf Hexal oder 5€ Gutscheineinlösung (3€ Restwert) oder nur gültig bis ... Mindestauftragswert von 20€ nicht erreicht.",
+        "discounts": [
+          {
+            "art": "VOUCHER",
+            "amount": 6800,
+            "linebyline": [
+              "abcdef1234567890",
+              "1234567890abcdef"
+            ]
+          }
+        ]
+      }
+    ],
+    "issuingcoupons": [
+      {
+        "soid": "abcdef1234567890",
+        "type": "CPN",
+        "code": "string",
+        "code_typ": "CODE39",
+        "name": "string",
+        "prv_name": "Firma xyz",
+        "bon_text": "Nur gültig bis ... Mindestauftragswert von 20 € nicht erreicht.",
+        "message_text": "1€ Rabatt auf Hexal oder 5€ Gutscheineinlösung (3€ Restwert) oder nur gültig bis ... Mindestauftragswert von 20€ nicht erreicht.",
+        "valid_from": "2021-02-16",
+        "valid_till": "2021-02-16"
+      }
+    ]
+  }
+}</con:responseContent></con:response><con:response name="400" id="b20cb253-cc16-46b5-991d-4c9a3b780d12" httpResponseStatus="400" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "ungueltige Parameter"
+}
+</con:responseContent></con:response><con:response name="401" id="bd12c11c-132c-4f54-9675-314428dbd976" httpResponseStatus="401" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "ungueltige Authorisierung"
+}</con:responseContent></con:response><con:response name="500" id="8abf85ae-48c7-4ee5-954e-0c0ac76eb259" httpResponseStatus="500" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Interner Server Fehler"
+}
+</con:responseContent></con:response><con:response name="504" id="1f4f26e7-0dfa-4a93-a4d2-8b82fc732a64" httpResponseStatus="504" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Gateway Timeout"
+}</con:responseContent></con:response><con:response name="404" id="e4356711-8f42-45da-af20-df1197067ae6" httpResponseStatus="200" mediaType="application/json" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Bad Gateway"
+}</con:responseContent></con:response></con:restMockAction><con:restMockAction name="/coupon/configuration" method="GET" resourcePath="/coupon/configuration" id="e5391049-991b-475c-8b76-6f0893690f18"><con:settings/><con:defaultResponse>200</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchConfig/><con:dispatchPath>String parameter = mockRequest.request.getParameter("apo_nr");
+
+/*check parameter is set
+if(parameter.isEmpty()) {
+	 return "401";
+}
+*/
+
+if(parameter.equals("APO1234567")) {
+	return "200";
+} else {
+	return "401";
+}
+ 
+return "400";</con:dispatchPath><con:dispatchXPath/><con:parameterDispatcherRuleContainer/><con:routeScript/><con:response name="200" id="9904313f-8d7a-4bf9-ba72-efc753a6f9cb" httpResponseStatus="200" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:script>//context.setProperty("key", Math.random()*100)</con:script><con:responseContent>{
+  "meta": {
+    "server_id": "SRV1234567",
+    "server_name": "A2B-Gateway der Firma XYZ",
+    "server_version": "1.1.0",
+    "stid": "123e4567-e89b-12d3-a456-9AC7CBDCEE52",
+    "val_date": "2017-07-21T17:32:28Z"
+  },
+  "data": {
+    "provider": [
+      {
+        "soid": "abcdef1234567890",
+        "coid": "1234567890abcdef",
+        "type": "CAN",
+        "short_name": "xyz",
+        "long_name": "Firma xyz",
+        "contract_info": "exklusives Clearing, kein Checkoutcouponing",
+        "active": true
+      }
+    ]
+  }
+}</con:responseContent><con:header><con:name>apo_nr</con:name><con:value/></con:header></con:response><con:response name="400" id="8f9e9c8e-c54b-47b6-bd5b-d36bc5ce30df" httpResponseStatus="400" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "ungueltige Parameter"
+}
+</con:responseContent></con:response><con:response name="401" id="da2ba7a0-5b56-4b6a-acd9-611dbaeba40e" httpResponseStatus="401" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "ungueltige Authorisierung"
+}</con:responseContent></con:response><con:response name="500" id="0e0e9645-8935-40da-a994-1c1d7ccbe1b1" httpResponseStatus="500" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Interner Server Fehler"
+}
+</con:responseContent></con:response><con:response name="504" id="64bfa712-035d-4679-8144-629c13bde030" httpResponseStatus="504" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Gateway Timeout"
+}</con:responseContent></con:response><con:response name="404" id="dc7795d7-670f-4e33-967f-e633297be283" httpResponseStatus="200" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" mediaType="application/json"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Bad Gateway"
+}</con:responseContent></con:response></con:restMockAction><con:restMockAction name="/coupon/inquiry" method="POST" resourcePath="/coupon/inquiry" id="6653172c-f21f-4e5a-bb8f-63351499ef91"><con:settings/><con:defaultResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">200</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchConfig/><con:dispatchPath>String parameter = mockRequest.request.getParameter("apo_nr");
+
+/*check parameter is set
+if(parameter.isEmpty()) {
+	 return "401";
+}
+*/
+
+if(parameter.equals("APO1234567")) {
+	return "200";
+} else {
+	return "401";
+}
+ 
+return "400";
+
+/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:dispatchXPath/><con:parameterDispatcherRuleContainer/><con:routeScript/><con:response name="200" id="d873217e-135c-4a04-b24e-0f0f3cc2fdd3" httpResponseStatus="200" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "meta": {
+    "client_id": "APO1234567",
+    "client_name": "System ABC der Firma XYZ",
+    "client_version": "1.1.0",
+    "user_id": "PM",
+    "user_name": "Peter Mustermann",
+    "ctid": "753d4e7f-a12b-89a4-f123-B25a45c78d9f",
+    "server_id": "SRV1234567",
+    "server_name": "A2B-Gateway der Firma XYZ",
+    "server_version": "1.1.0",
+    "stid": "123e4567-e89b-12d3-a456-9AC7CBDCEE52",
+    "val_date": "2017-07-21T17:32:28Z"
+  },
+  "data": {
+    "shoppingcartlines": [
+      {
+        "soid": "abcdef1234567890",
+        "coid": "1234567890abcdef",
+        "type": "SCL",
+        "article": {
+          "coid": "1234567890abcdef",
+          "type": "ART",
+          "pzn": "78597",
+          "ean": "EAN-Code",
+          "name": "Aspinin Tabletten - 50 St N1 - Bayer"
+        },
+        "quantity": 1,
+        "linevalue": 6800
+      }
+    ],
+    "redemptioncoupons": [
+      {
+        "soid": "abcdef1234567890",
+        "coid": "1234567890abcdef",
+        "type": "CPN",
+        "code": "string",
+        "discount_max": 6800,
+        "name": "string",
+        "prv_long_name": "Firma xyz",
+        "state": "INVALID",
+        "bon_text": "Nur gültig bis ... Mindestauftragswert von 20 € nicht erreicht.",
+        "message_text": "1€ Rabatt auf Hexal oder 5€ Gutscheineinlösung (3€ Restwert) oder nur gültig bis ... Mindestauftragswert von 20€ nicht erreicht.",
+        "discounts": [
+          {
+            "art": "VOUCHER",
+            "amount": 6800,
+            "linebyline": [
+              "abcdef1234567890",
+              "1234567890abcdef"
+            ]
+          }
+        ]
+      }
+    ],
+    "issuingcoupons": [
+      {
+        "soid": "abcdef1234567890",
+        "type": "CPN",
+        "code": "string",
+        "code_typ": "CODE39",
+        "name": "string",
+        "prv_name": "Firma xyz",
+        "bon_text": "Nur gültig bis ... Mindestauftragswert von 20 € nicht erreicht.",
+        "message_text": "1€ Rabatt auf Hexal oder 5€ Gutscheineinlösung (3€ Restwert) oder nur gültig bis ... Mindestauftragswert von 20€ nicht erreicht.",
+        "valid_from": "2021-02-16",
+        "valid_till": "2021-02-16"
+      }
+    ]
+  }
+}</con:responseContent></con:response><con:response name="400" id="2b5c1484-a1af-44c8-958a-3aad42872d65" httpResponseStatus="400" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "ungueltige Parameter"
+}
+</con:responseContent></con:response><con:response name="401" id="9b3fbd95-2e2a-4dbd-9801-15dba5c467a1" httpResponseStatus="401" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "ungueltige Authorisierung"
+}</con:responseContent></con:response><con:response name="500" id="75df9cf6-c646-4511-997c-388bbd6c9f2e" httpResponseStatus="500" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Interner Server Fehler"
+}
+</con:responseContent></con:response><con:response name="504" id="f0838c22-5c61-4758-80ce-888d2cda973d" httpResponseStatus="504" mediaType="application/json" dataSource="" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Gateway Timeout"
+}</con:responseContent></con:response><con:response name="404" id="09efa855-a270-4df0-903d-d03b14075b27" httpResponseStatus="200" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200025a000a636f6d707265737365645b0004646174617400025b4278700070" mediaType="application/json"><con:settings/><con:responseContent>{
+  "code": 0,
+  "message": "Bad Gateway"
+}</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>
